@@ -9,9 +9,9 @@ export default function Footer() {
     <footer className="bg-[#090a0d] text-slate-400 border-t border-slate-800 text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* Columna 1: Marca con Vector Logo */}
+          {/* Columna 1: Marca con Logo Oficial */}
           <div className="space-y-4">
-            <TitanLogo size={36} />
+            <TitanLogo size={46} />
             <p className="text-slate-400 text-xs leading-relaxed pt-1">
               Desbaste diamantado, densificado químico y restauración técnica de pisos de hormigón, mármol, granito y maderas. Faenas residenciales, comerciales e industriales.
             </p>

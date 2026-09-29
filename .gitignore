@@ -43,3 +43,5 @@ next-env.d.ts
 # raw local media in root
 /WhatsApp Image*
 /WhatsApp Video*
+
+.vercel

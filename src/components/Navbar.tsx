@@ -11,7 +11,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 sm:px-10 h-20 flex items-center justify-between">
         {/* Logo Titan Pulido */}
         <Link href="/" className="hover:opacity-90 transition-opacity">
-          <TitanLogo size={36} />
+          <TitanLogo size={44} />
         </Link>
 
         {/* Navegación limpia y directa */}
