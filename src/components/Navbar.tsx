@@ -11,11 +11,11 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 sm:px-10 h-20 flex items-center justify-between">
         {/* Logo Titan Pulido */}
         <Link href="/" className="hover:opacity-90 transition-opacity">
-          <TitanLogo size={44} />
+          <TitanLogo size={42} />
         </Link>
 
-        {/* Navegación limpia y directa */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-light text-zinc-300">
+        {/* Navegación sobria y minimalista */}
+        <nav className="hidden md:flex items-center gap-8 text-xs font-light tracking-wider text-zinc-400 uppercase">
           <a href="#galeria" className="hover:text-white transition-colors">
             Superficies
           </a>
@@ -25,22 +25,13 @@ export default function Navbar() {
           <a href="#faenas" className="hover:text-white transition-colors">
             Faenas en Vivo
           </a>
-          <a href="#cotizador" className="hover:text-white transition-colors">
-            Cotizador m²
-          </a>
           <a href="#faq" className="hover:text-white transition-colors">
             Preguntas
           </a>
         </nav>
 
-        {/* CTA Directo y Sobrio */}
-        <div className="flex items-center gap-5">
-          <a
-            href="tel:+56912345678"
-            className="hidden sm:inline-block text-xs font-mono text-zinc-400 hover:text-white transition-colors"
-          >
-            +56 9 1234 5678
-          </a>
+        {/* CTA Directo */}
+        <div className="flex items-center">
           <a
             href={whatsappUrl}
             target="_blank"

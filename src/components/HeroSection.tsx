@@ -86,10 +86,10 @@ export default function HeroSection() {
             </a>
 
             <a
-              href="#comparativa"
+              href="#galeria"
               className="inline-flex items-center gap-2 text-xs font-light text-zinc-400 hover:text-white transition-colors"
             >
-              <span>Ver comparativa en obra</span>
+              <span>Explorar catálogo de superficies</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>

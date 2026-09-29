@@ -1,59 +1,53 @@
-import { HelpCircle } from "lucide-react";
-
 export default function FAQSection() {
   const faqs = [
     {
       q: "¿Realizan muestras o pruebas in-situ antes de iniciar una obra grande?",
-      a: "Sí. Para proyectos comerciales e industriales de radier, hormigón y epóxicos, podemos realizar una prueba de diamantado y brillo en una zona delimitada. Así puedes comprobar la reflectividad real y la dureza del sustrato antes de autorizar el metraje completo.",
+      a: "Sí. Para proyectos comerciales e industriales de radier, hormigón y epóxicos, podemos realizar una prueba de diamantado y brillo en una zona delimitada para comprobar la reflectividad real y la dureza del sustrato antes de autorizar el metraje completo.",
     },
     {
       q: "¿Realmente el servicio de desbaste es 99% libre de polvo?",
-      a: "Totalmente. Nuestras máquinas desbastadoras y orilladoras cuentan con turbinas de aspiración continua y filtros ciclónicos de alta eficiencia que succionan el material particulado en el mismo punto de fricción. No necesitas embalar muros ni detener áreas contiguas.",
+      a: "Totalmente. Nuestras máquinas satelitales y orilladoras cuentan con turbinas de aspiración continua y filtros ciclónicos de alta eficiencia que succionan el particulado en el mismo punto de fricción. No es necesario embalar muros.",
     },
     {
-      q: "¿Pueden trabajar en horario nocturno o fines de semana para no frenar la empresa?",
-      a: "Por supuesto. Atendemos concesionarios, industrias, bodegas de logística y locales comerciales con faenas continuas en turnos especiales, garantizando entrega en los plazos acordados sin paralizar la operación de tu negocio.",
+      q: "¿Pueden trabajar en horario nocturno o fines de semana?",
+      a: "Sí. Atendemos concesionarios, industrias, bodegas de logística y locales comerciales con turnos continuos especiales, garantizando entrega en los plazos fijados sin paralizar la operación.",
     },
     {
       q: "¿Cuánto tiempo demora el trabajo y cuándo se puede transitar?",
-      a: "En hormigón pulido el tránsito peatonal es inmediato tras la aplicación del densificador. En pisos epóxicos y vitrificados de madera, el tránsito liviano se habilita a las 24 horas y el tráfico pesado o montacargas entre 48 y 72 horas.",
+      a: "En hormigón pulido el tránsito peatonal es inmediato tras la aplicación del densificador de litio. En pisos epóxicos y vitrificados de madera, el tránsito liviano se habilita a las 24 horas y el tráfico pesado a las 48-72 horas.",
     },
     {
       q: "¿Qué durabilidad tiene el pulido diamantado y el cristalizado?",
-      a: "Un hormigón diamantado o granito cristalizado por Titan Pulidos mantiene su brillo entre 5 a 10 años con mantenimiento básico de mopa húmeda, sin necesidad de ceras que junten suciedad ni decapados agresivos.",
+      a: "Un hormigón diamantado o granito cristalizado por Titan Pulido mantiene su brillo entre 5 a 10 años con mantenimiento básico de mopa húmeda, sin necesidad de ceras sintéticas que se descascaren.",
     },
     {
-      q: "¿Cómo se coordina el presupuesto formal y las garantías?",
-      a: "Te entregamos un presupuesto detallado por m² por escrito. Trabajamos con contrato, factura formal y garantía técnica de adherencia y brillo según las especificaciones del material.",
+      q: "¿Cómo se coordina el presupuesto y las garantías?",
+      a: "Entregamos presupuesto técnico por m² por escrito. Operamos con contrato, facturación formal y garantía técnica según las especificaciones de cada sustrato.",
     },
   ];
 
   return (
-    <section id="faq" className="py-20 bg-slate-950 text-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-1.5 text-amber-400 text-xs font-black uppercase tracking-wider mb-2 bg-amber-500/10 px-3.5 py-1.5 rounded-full border border-amber-500/30">
-            <HelpCircle className="w-4 h-4 text-amber-400" />
-            <span>Respuestas Técnicas y Operativas</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
-            Preguntas Frecuentes
+    <section id="faq" className="py-24 bg-[#08090b] text-zinc-100 border-t border-zinc-900">
+      <div className="max-w-4xl mx-auto px-6 sm:px-10">
+        <div className="max-w-xl mb-14">
+          <p className="text-xs font-mono tracking-[0.25em] text-amber-400 uppercase mb-3">
+            Criterios & Operación
+          </p>
+          <h2 className="text-2xl sm:text-3xl font-light text-white tracking-tight">
+            Preguntas frecuentes.
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base mt-2">
-            Todo lo que necesitas saber antes de iniciar la restauración de tus pisos con Titan Pulidos.
+          <p className="mt-3 text-sm text-zinc-400 font-light leading-relaxed">
+            Aspectos técnicos y condiciones de faena antes de iniciar la restauración con Titan Pulido.
           </p>
         </div>
 
-        <div className="space-y-4">
+        <div className="divide-y divide-zinc-900 border-y border-zinc-900">
           {faqs.map((faq, idx) => (
-            <div
-              key={idx}
-              className="bg-slate-900/70 border border-slate-800 rounded-2xl p-6 hover:border-amber-500/30 transition-colors shadow-md"
-            >
-              <h3 className="text-base sm:text-lg font-bold text-amber-300 mb-2">
+            <div key={idx} className="py-7 space-y-2">
+              <h3 className="text-base font-medium text-white tracking-tight">
                 {faq.q}
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <p className="text-sm font-light text-zinc-400 leading-relaxed max-w-3xl">
                 {faq.a}
               </p>
             </div>
