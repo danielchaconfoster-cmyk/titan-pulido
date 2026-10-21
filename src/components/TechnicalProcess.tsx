@@ -1,59 +1,21 @@
+const steps = [
+  { title: "Preparación y reparación", description: "Revisamos el estado del radier y definimos cómo tratar fisuras, juntas y restos de revestimientos." },
+  { title: "Desbaste y pulido", description: "Trabajamos con abrasivos progresivos para mejorar la superficie y alcanzar la terminación acordada." },
+  { title: "Tratamiento y entrega", description: "Aplicamos densificador o protección cuando corresponde y explicamos los cuidados y tiempos de uso." },
+];
+
 export default function TechnicalProcess() {
-  const steps = [
-    {
-      num: "01",
-      title: "Desbaste inicial",
-      description: "Eliminación de pinturas viejas, ceras y desniveles mediante diamantes metálicos gruesos.",
-    },
-    {
-      num: "02",
-      title: "Reparación y sellado de juntas",
-      description: "Retapado de grietas y baches con resinas técnicas para lograr un plano continuo.",
-    },
-    {
-      num: "03",
-      title: "Densificación con litio",
-      description: "Reacción química que endurece el hormigón desde el interior, evitando el polvo de por vida.",
-    },
-    {
-      num: "04",
-      title: "Pulido mecánico a grano #3000",
-      description: "Pases sucesivos de resina diamantada hasta alcanzar brillo cristalino natural, sin barnices.",
-    },
-  ];
-
   return (
-    <section id="proceso" className="py-24 bg-[#090a0c] text-zinc-100 border-t border-zinc-900">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        
-        <div className="max-w-2xl mb-16">
-          <p className="text-xs font-light text-zinc-500 uppercase tracking-widest mb-3">
-            Metodología de Trabajo
-          </p>
-          <h2 className="text-2xl sm:text-3xl font-light text-white tracking-tight">
-            El proceso mecánico de restauración.
-          </h2>
-          <p className="mt-3 text-sm text-zinc-400 font-light leading-relaxed">
-            Un piso duradero no se logra pintando ni encerando. Es el resultado de pulir la piedra misma hasta cerrarle los poros y liberar su propio reflejo.
-          </p>
+    <section id="proceso" aria-labelledby="process-title" className="py-16 sm:py-20 bg-[#090a0c] text-zinc-100">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10">
+        <div className="max-w-2xl mb-8">
+          <h2 id="process-title" className="text-2xl sm:text-3xl font-light text-white tracking-tight">Así trabajamos el hormigón.</h2>
+          <p className="mt-3 text-sm sm:text-base text-zinc-300 font-light leading-relaxed">La secuencia se ajusta al estado del piso y al acabado que buscas. Para piedra, epóxicos o madera, definimos un proceso específico.</p>
         </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12 pt-8 border-t border-zinc-900">
-          {steps.map((step) => (
-            <div key={step.num} className="space-y-3">
-              <span className="text-xs font-mono text-zinc-600 block">
-                {step.num}
-              </span>
-              <h3 className="text-base font-medium text-white">
-                {step.title}
-              </h3>
-              <p className="text-sm font-light text-zinc-400 leading-relaxed">
-                {step.description}
-              </p>
-            </div>
-          ))}
-        </div>
-
+        <ol className="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-zinc-800 pt-8">
+          {steps.map((step, index) => <li key={step.title}><span className="text-xs font-mono text-amber-400" aria-hidden="true">0{index + 1}</span><h3 className="mt-3 text-base font-medium text-white">{step.title}</h3><p className="mt-2 text-sm font-light text-zinc-300 leading-relaxed">{step.description}</p></li>)}
+        </ol>
+        <p className="mt-8 max-w-3xl text-sm leading-relaxed text-zinc-400">El control de polvo y la protección del entorno se planifican según la faena. Antes de comenzar, acordamos qué despejar y qué zonas proteger.</p>
       </div>
     </section>
   );

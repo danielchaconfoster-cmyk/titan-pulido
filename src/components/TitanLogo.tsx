@@ -24,7 +24,6 @@ export default function TitanLogo({
           fill
           sizes={`${size * 2}px`}
           className="object-cover scale-[1.14]"
-          priority
         />
       </div>
 

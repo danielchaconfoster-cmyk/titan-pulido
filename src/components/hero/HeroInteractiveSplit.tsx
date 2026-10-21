@@ -10,7 +10,7 @@ export default function HeroInteractiveSplit() {
   const isDragging = useRef<boolean>(false);
 
   const whatsappUrl =
-    "https://wa.me/56912345678?text=Hola%20Titan%20Pulido,%20deseo%20solicitar%20un%20test-spot%20o%20cotizaci%C3%B3n%20en%20terreno.";
+    "https://wa.me/56987017328?text=Hola%20Titan%20Pulido,%20deseo%20solicitar%20un%20test-spot%20o%20cotizaci%C3%B3n%20en%20terreno.";
 
   const handleMove = useCallback((clientX: number) => {
     if (!containerRef.current) return;

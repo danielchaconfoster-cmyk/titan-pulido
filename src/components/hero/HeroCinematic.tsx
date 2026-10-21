@@ -8,7 +8,7 @@ export default function HeroCinematic() {
   const [isMounted, setIsMounted] = useState(false);
 
   const whatsappUrl =
-    "https://wa.me/56912345678?text=Hola%20Titan%20Pulido,%20deseo%20solicitar%20una%20evaluaci%C3%B3n%20para%20mis%20pisos.";
+    "https://wa.me/56987017328?text=Hola%20Titan%20Pulido,%20deseo%20solicitar%20una%20evaluaci%C3%B3n%20para%20mis%20pisos.";
 
   useEffect(() => {
     setIsMounted(true);

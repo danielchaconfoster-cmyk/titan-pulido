@@ -1,117 +1,35 @@
-import { MessageCircle, ShieldCheck } from "lucide-react";
+import { createWhatsAppUrl } from "@/lib/contact";
+import WhatsAppNativeIcon from "@/components/WhatsAppNativeIcon";
+
+const videos = [
+  { id: "superficie", title: "Vista de una superficie pulida", source: "/media/videos/piso-terminacion.mp4", poster: "/media/posters/piso-terminacion.jpg", description: "Recorrido por el piso de un espacio interior. Se aprecia cómo la luz de los ventanales se refleja sobre la superficie." },
+  { id: "detalle", title: "Detalle del acabado y las juntas", source: "/media/videos/piso-detalle.mp4", poster: "/media/posters/piso-detalle.jpg", description: "Vista cercana de la superficie y sus juntas. El reflejo cambia con la luz y el ángulo de la cámara." },
+];
 
 export default function VideosSection() {
-  const videos = [
-    {
-      title: "Desbaste Pesado con Pulidora Planetaria",
-      equipment: "Pulidora Trifásica Satelital 15 HP",
-      substrate: "Losa de hormigón industrial con desgaste",
-      videoSrc: "/media/videos/pulidora-accion-1.mp4",
-      description: "Pase inicial con pastillas diamantadas metálicas para remoción de irregularidades y nivelación del plano.",
-    },
-    {
-      title: "Aspiración Ciclónica en Punto de Fricción",
-      equipment: "Aspirador Industrial Ciclónico HEPA",
-      substrate: "Galpón comercial cerrado",
-      videoSrc: "/media/videos/pulidora-accion-3.mp4",
-      description: "Demostración de retención de polvo en suspensión. Permite trabajar en locales comerciales sin contaminar zonas anexas.",
-    },
-    {
-      title: "Corte Diamantado Continuo en Obra",
-      equipment: "Maquinaria Satelital Pesada",
-      substrate: "Pavimento continuo en faena activa",
-      videoSrc: "/media/videos/pulidora-accion-horizontal.mp4",
-      description: "Secuencia de desbaste parejo para apertura controlada del árido previo a la densificación química con litio.",
-    },
-  ];
-
-  const whatsappUrl =
-    "https://wa.me/56912345678?text=Hola%20Titan%20Pulido,%20quiero%20coordinar%20una%20visita%20t%C3%A9cnica%20de%20inspecci%C3%B3n.";
-
   return (
-    <section id="faenas" className="py-24 bg-[#08090b] text-zinc-100 border-t border-zinc-900">
+    <section id="faenas" aria-labelledby="work-title" className="py-16 sm:py-24 bg-[#08090b] text-zinc-100 border-t border-zinc-900">
       <div className="max-w-7xl mx-auto px-6 sm:px-10">
-        
-        {/* Cabecera Editorial */}
-        <div className="max-w-2xl mb-14">
-          <p className="text-xs font-mono tracking-[0.25em] text-amber-400 uppercase mb-3">
-            Registro Operativo en Vivo
-          </p>
-          <h2 className="text-2xl sm:text-3xl font-light text-white tracking-tight">
-            Nuestra maquinaria en faenas reales.
-          </h2>
-          <p className="mt-3 text-sm text-zinc-400 font-light leading-relaxed">
-            Videos directos grabados por nuestros operadores en terreno. Equipamiento trifásico planetario y aspiración ciclónica continua para trabajos limpios y sin polvo.
-          </p>
+        <div className="max-w-2xl mb-10">
+          <h2 id="work-title" className="text-2xl sm:text-3xl font-light text-white tracking-tight">El acabado, visto de cerca.</h2>
+          <p className="mt-3 text-sm sm:text-base text-zinc-300 font-light leading-relaxed">Registros de superficies en terreno. Cada piso tiene un punto de partida distinto: el resultado depende del material, su desgaste y el tratamiento elegido.</p>
         </div>
-
-        {/* Grilla de Videos 100% Proporcional (Widescreen 16:9 idéntico para todos) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {videos.map((vid, idx) => (
-            <div
-              key={idx}
-              className="bg-[#0c0d10] border border-zinc-850 overflow-hidden flex flex-col justify-between"
-            >
-              {/* Contenedor Widescreen 16:9 Uniforme */}
-              <div className="relative aspect-video w-full bg-black overflow-hidden border-b border-zinc-850">
-                <video
-                  src={vid.videoSrc}
-                  controls
-                  playsInline
-                  preload="metadata"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              {/* Ficha técnica del video */}
-              <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                <div>
-                  <div className="text-[10px] font-mono text-amber-500 uppercase tracking-widest mb-1.5">
-                    {vid.equipment}
-                  </div>
-                  <h3 className="text-base font-medium text-white mb-2 leading-snug">
-                    {vid.title}
-                  </h3>
-                  <p className="text-xs text-zinc-400 font-light leading-relaxed">
-                    {vid.description}
-                  </p>
-                </div>
-
-                <div className="pt-3 border-t border-zinc-900 flex items-center justify-between text-[11px] font-mono text-zinc-500">
-                  <span>SUSTRATO:</span>
-                  <span className="text-zinc-300 font-sans text-xs">{vid.substrate}</span>
-                </div>
-              </div>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {videos.map((video) => (
+            <figure key={video.id} className="overflow-hidden border border-zinc-800 bg-[#0c0d10]">
+              <video src={video.source} poster={video.poster} aria-labelledby={`video-${video.id}`} aria-describedby={`description-${video.id}`} controls playsInline preload="none" className="aspect-video w-full bg-black object-contain" />
+              <figcaption className="p-6">
+                <h3 id={`video-${video.id}`} className="text-base font-medium text-white">{video.title}</h3>
+                <p id={`description-${video.id}`} className="mt-2 text-sm leading-relaxed text-zinc-300 font-light">{video.description}</p>
+                <p className="mt-3 text-xs text-zinc-400">Registro visual sin audio.</p>
+              </figcaption>
+            </figure>
           ))}
         </div>
-
-        {/* Bloque de Visita Técnica Limpio */}
-        <div className="mt-14 p-8 bg-[#0c0d10] border border-zinc-850 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-          <div className="space-y-1">
-            <div className="flex items-center gap-2 text-xs font-mono text-amber-400 uppercase tracking-wider">
-              <ShieldCheck className="w-4 h-4 text-amber-400" />
-              <span>Evaluación Técnica en Obra</span>
-            </div>
-            <h3 className="text-lg font-light text-white">
-              ¿Requieres evaluar el estado de tu losa o radier antes de cotizar?
-            </h3>
-            <p className="text-xs sm:text-sm text-zinc-400 font-light">
-              Coordinamos una inspección en terreno en Santiago, Rancagua o V Región para evaluar dureza y recomendar el tratamiento adecuado.
-            </p>
-          </div>
-
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-zinc-200 text-black text-xs font-medium uppercase tracking-wider transition-colors"
-          >
-            <MessageCircle className="w-3.5 h-3.5 fill-black" />
-            <span>Coordinar Visita Técnica</span>
-          </a>
+        <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <p className="max-w-xl text-sm text-zinc-300">¿Buscas un resultado para tu espacio? Envíanos una foto de tu piso para revisar las opciones.</p>
+          <a href={createWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 bg-white px-5 py-3 text-xs font-medium uppercase tracking-wider text-black hover:bg-zinc-200 transition-colors"><WhatsAppNativeIcon className="h-4 w-4" />Consultar por mi piso</a>
         </div>
-
       </div>
     </section>
   );

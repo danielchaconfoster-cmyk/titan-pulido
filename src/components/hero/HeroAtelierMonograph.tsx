@@ -59,7 +59,7 @@ const MONOGRAPHS: MonographEntry[] = [
 export default function HeroAtelierMonograph() {
   const [activeWork, setActiveWork] = useState<MonographEntry>(MONOGRAPHS[0]);
   const whatsappUrl =
-    "https://wa.me/56912345678?text=Hola%20Titan%20Pulido,%20quisiera%20consultar%20por%20la%20obra%20" +
+    "https://wa.me/56987017328?text=Hola%20Titan%20Pulido,%20quisiera%20consultar%20por%20la%20obra%20" +
     encodeURIComponent(activeWork.title);
 
   return (

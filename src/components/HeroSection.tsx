@@ -2,164 +2,44 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { MessageCircle, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import WhatsAppNativeIcon from "@/components/WhatsAppNativeIcon";
+import { createWhatsAppUrl } from "@/lib/contact";
 
-interface PresentationSlide {
-  id: string;
-  tag: string;
-  title: string;
-  subtitle: string;
-  image: string;
-  caption: string;
-}
-
-const SLIDES: PresentationSlide[] = [
-  {
-    id: "arquitectura",
-    tag: "RESIDENCIAL & ARQUITECTURA",
-    title: "Restauración y pulido diamantado de pisos.",
-    subtitle:
-      "Desbaste mecánico progresivo y densificación con silicato de litio. Superficies continuas de hormigón y piedra noble con brillo natural permanente, sin ceras ni polímeros.",
-    image: "/media/fotos/piso_pulido_arquitectonico_hd.jpg",
-    caption: "Residencia contemporánea · Hormigón afinado pulido a grano #3000 con reflejo de luz natural",
-  },
-  {
-    id: "showroom",
-    tag: "SHOWROOM & ESPACIOS PÚBLICOS",
-    title: "Pavimentos minerales de alto tráfico y luz.",
-    subtitle:
-      "Tratamiento antipolvo y sellado profundo de poros. Soluciones para galerías, salas de venta y espacios comerciales con resistencia al tránsito continuo.",
-    image: "/media/fotos/showroom_hormigon_pulido_hd.jpg",
-    caption: "Galería de exhibición · Pavimento continuo reflectivo de mantenimiento simple",
-  },
-  {
-    id: "losa-industrial",
-    tag: "NAVES & FAENAS INDUSTRIALES",
-    title: "Nivelación y cristalizado de radier en faena.",
-    subtitle:
-      "Operamos con maquinaria planetaria pesada y aspiración ciclónica HEPA 99% sin emitir nubes de polvillo en obra activa.",
-    image: "/media/fotos/galpon_panoramica_1920.jpg",
-    caption: "Nave logística · Radier nivelado mecánicamente con silicato de litio activo",
-  },
+const slides = [
+  { id: "arquitectura", label: "Viviendas", image: "/media/fotos/piso_pulido_arquitectonico_hd.jpg", alt: "Piso de hormigón pulido en un espacio residencial con luz natural", caption: "Hormigón pulido · Espacios residenciales" },
+  { id: "showroom", label: "Comercios", image: "/media/fotos/showroom_hormigon_pulido_hd.jpg", alt: "Pavimento continuo en una sala de exhibición", caption: "Pavimentos continuos · Locales y salas de venta" },
+  { id: "industrial", label: "Industria", image: "/media/fotos/galpon_panoramica_1920.jpg", alt: "Superficie de hormigón en un galpón industrial", caption: "Radier y hormigón · Galpones y bodegas" },
 ];
 
 export default function HeroSection() {
-  const [currentSlide, setCurrentSlide] = useState<number>(0);
-  const slide = SLIDES[currentSlide];
-
-  const whatsappUrl =
-    "https://wa.me/56912345678?text=Hola%20Titan%20Pulido,%20quisiera%20solicitar%20un%20presupuesto%20para%20mis%20pisos.";
-
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const slide = slides[currentSlide];
   return (
-    <section className="bg-[#08090b] text-zinc-100 pt-12 pb-20 sm:pt-16 sm:pb-28">
-      <div className="max-w-7xl mx-auto px-6 sm:px-10">
-        
-        {/* 1. Cabecera Editorial Limpia y Medida (Tipografía Humana, sin gritos) */}
-        <div className="max-w-3xl mb-10 space-y-4">
-          <div className="flex items-center gap-3">
-            <span className="text-[11px] font-mono tracking-[0.25em] text-amber-400 uppercase">
-              {slide.tag}
-            </span>
-            <span className="text-zinc-600">·</span>
-            <span className="text-[11px] font-mono text-zinc-400 uppercase tracking-wider">
-              Santiago · Rancagua · V Región
-            </span>
-          </div>
-
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white tracking-tight leading-[1.18]">
-            {slide.title}
-          </h1>
-
-          <p className="text-sm sm:text-base text-zinc-400 font-light leading-relaxed max-w-2xl">
-            {slide.subtitle}
-          </p>
-
-          <div className="pt-2 flex flex-wrap items-center gap-4">
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 px-6 py-3 bg-white hover:bg-zinc-200 text-black text-xs font-medium uppercase tracking-wider transition-colors"
-            >
-              <MessageCircle className="w-3.5 h-3.5 fill-black" />
-              <span>Cotizar Proyecto por WhatsApp</span>
+    <section aria-labelledby="hero-title" className="relative isolate flex min-h-svh flex-col overflow-hidden bg-[#08090b] text-zinc-100">
+      <Image src={slide.image} alt={slide.alt} fill loading="eager" fetchPriority="high" sizes="100vw" className="object-cover -z-20" />
+      <div aria-hidden="true" className="hero-shade absolute inset-0 -z-10" />
+      <div className="mx-auto flex w-full max-w-7xl flex-1 items-end px-6 pb-8 pt-32 sm:px-10 sm:pt-40 sm:pb-12">
+        <div className="max-w-3xl space-y-5">
+          <h1 id="hero-title" className="text-3xl sm:text-4xl lg:text-5xl font-light text-white tracking-tight leading-[1.18] text-balance">Recupera el brillo y la vida de tus pisos.</h1>
+          <p className="max-w-2xl text-base font-light leading-relaxed text-zinc-100">Pulido y restauración de hormigón, mármol y granito, y revestimientos epóxicos para viviendas, comercios e industria.</p>
+          <p className="text-xs sm:text-sm text-amber-300">Santiago · Rancagua · V Región</p>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-2">
+            <a href={createWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center justify-center gap-2.5 bg-white px-5 py-3 text-xs font-medium uppercase tracking-wider text-black hover:bg-zinc-200 transition-colors">
+              <WhatsAppNativeIcon className="h-4 w-4 shrink-0" />Cotizar por WhatsApp
             </a>
-
-            <a
-              href="#galeria"
-              className="inline-flex items-center gap-2 text-xs font-light text-zinc-400 hover:text-white transition-colors"
-            >
-              <span>Explorar catálogo de superficies</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </a>
+            <a href="#galeria" className="inline-flex min-h-11 items-center gap-2 text-sm text-zinc-100 hover:text-amber-300 transition-colors">Ver servicios <ArrowRight className="h-4 w-4" aria-hidden="true" /></a>
+          </div>
+          <p className="max-w-md text-sm leading-relaxed text-zinc-200">Envíanos fotos, comuna y m² aproximados.<br />Si no conoces el material, te ayudamos a identificarlo.</p>
+        </div>
+      </div>
+      <div className="mx-auto w-full max-w-7xl px-6 sm:px-10">
+        <div className="flex flex-col gap-4 border-t border-white/25 py-5 sm:flex-row sm:items-center sm:justify-between">
+          <p aria-live="polite" className="text-xs text-zinc-200">{slide.caption}</p>
+          <div role="group" aria-label="Fotografías de superficies" className="flex flex-wrap gap-2">
+            {slides.map((item, index) => <button key={item.id} type="button" aria-pressed={currentSlide === index} aria-label={`Ver fotografía: ${item.label}`} onClick={() => setCurrentSlide(index)} className={`min-h-11 border px-3 py-2 text-xs transition-colors ${currentSlide === index ? "border-white bg-white text-black" : "border-white/40 bg-black/40 text-white hover:bg-black/60"}`}>{item.label}</button>)}
           </div>
         </div>
-
-        {/* 2. El Lienzo Fotográfico Nítido a Gran Formato (Como Lámina de Presentación) */}
-        <div className="relative overflow-hidden border border-zinc-850 bg-zinc-950">
-          <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] min-h-[380px] sm:min-h-[500px]">
-            <Image
-              src={slide.image}
-              alt={slide.caption}
-              fill
-              priority
-              className="object-cover transition-opacity duration-500"
-              sizes="100vw"
-            />
-          </div>
-
-          {/* Barra Inferior del Lienzo: Selector de Láminas y Leyenda */}
-          <div className="p-4 sm:p-5 bg-[#0c0d10] border-t border-zinc-850 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div className="text-xs text-zinc-400 font-light">
-              <span className="text-zinc-200 font-medium">{slide.caption}</span>
-            </div>
-
-            {/* Selector de Láminas Estilo Presentación */}
-            <div className="flex items-center gap-1">
-              {SLIDES.map((s, idx) => (
-                <button
-                  key={s.id}
-                  onClick={() => setCurrentSlide(idx)}
-                  className={`px-3 py-1.5 text-[11px] font-mono transition-colors border ${
-                    currentSlide === idx
-                      ? "bg-white text-black font-semibold border-white"
-                      : "text-zinc-500 hover:text-zinc-300 border-zinc-800 bg-zinc-950"
-                  }`}
-                >
-                  0{idx + 1}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* 3. Tres Principios de Oficio en Tipografía Serena (Sin cajitas plásticas) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pt-16 border-t border-zinc-900 mt-16">
-          <div className="space-y-2">
-            <span className="text-xs font-mono text-zinc-500">01 / MECÁNICA</span>
-            <h2 className="text-base font-medium text-white">Desbaste Progresivo con Diamante</h2>
-            <p className="text-xs sm:text-sm font-light text-zinc-400 leading-relaxed">
-              Apertura y cierre micrométrico del poro de la piedra mediante pastillas metálicas y resinoides. Sin barnices que se degraden con el sol.
-            </p>
-          </div>
-
-          <div className="space-y-2">
-            <span className="text-xs font-mono text-zinc-500">02 / QUÍMICA</span>
-            <h2 className="text-base font-medium text-white">Densificación Molecular con Litio</h2>
-            <p className="text-xs sm:text-sm font-light text-zinc-400 leading-relaxed">
-              El silicato de litio reacciona internamente con la cal libre del cemento, creando una estructura cristalina dura que detiene el polvo de por vida.
-            </p>
-          </div>
-
-          <div className="space-y-2">
-            <span className="text-xs font-mono text-zinc-500">03 / HIGIENE</span>
-            <h2 className="text-base font-medium text-white">Tecnología 99% Libre de Polvo</h2>
-            <p className="text-xs sm:text-sm font-light text-zinc-400 leading-relaxed">
-              Aspiración ciclónica pesada con filtrado HEPA en cada máquina. Tu espacio, muros y muebles quedan limpios durante toda la faena.
-            </p>
-          </div>
-        </div>
-
       </div>
     </section>
   );

@@ -3,7 +3,7 @@
 import { MessageCircle } from "lucide-react";
 
 export default function StickyWhatsApp() {
-  const whatsappUrl = "https://wa.me/56912345678?text=Hola%20Titan%20Pulidos,%20quisiera%20cotizar%20el%20pulido%20y%20restauraci%C3%B3n%20de%20mis%20pisos.";
+  const whatsappUrl = "https://wa.me/56987017328?text=Hola%20Titan%20Pulidos,%20quisiera%20cotizar%20el%20pulido%20y%20restauraci%C3%B3n%20de%20mis%20pisos.";
 
   return (
     <aside aria-label="Contacto directo por WhatsApp" className="fixed bottom-6 right-6 z-50 flex items-center gap-3">

@@ -20,7 +20,7 @@ const syne = Syne({
 
 export const metadata: Metadata = {
   title: "Titan Pulido | Pulido, Diamantado y Restauración de Pisos",
-  description: "Especialistas en pulido diamantado de hormigón, mármol, granito, pisos epóxicos de alto tráfico y maderas. Maquinaria pesada industrial y tecnología 99% libre de polvo.",
+  description: "Pulido y restauración de hormigón, mármol y granito, revestimientos epóxicos y consultas por parquet. Atención en Santiago, Rancagua y V Región. Cotiza por WhatsApp.",
   keywords: [
     "titan pulido",
     "pulido de hormigon",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Titan Pulido | Pulido y Restauración Profesional de Pisos",
-    description: "Brillo espejo, desbaste diamantado y pisos epóxicos de alto tráfico. Cotiza online con Titan Pulido.",
+    description: "Encuentra el tratamiento para tu piso. Envíanos fotos, comuna y m² aproximados para cotizar con Titan Pulido.",
     type: "website",
     locale: "es_CL",
   },

@@ -1,56 +1,29 @@
+import { Plus } from "lucide-react";
+
+const faqs = [
+  { q: "¿Qué necesitan para cotizar y cómo se calcula el precio?", a: "Envíanos fotos del piso, la comuna y los metros cuadrados aproximados. El valor depende del material, el desgaste, las reparaciones y la terminación. Si las fotos no bastan, coordinamos una evaluación en terreno antes de definir el presupuesto." },
+  { q: "¿Cuánto demora y cuándo puedo volver a usar el piso?", a: "Depende de la superficie, el tratamiento y las condiciones de la obra. Los revestimientos y vitrificados necesitan tiempos de secado y curado específicos. Confirmamos el plazo de trabajo y la habilitación para personas o vehículos según el producto aplicado." },
+  { q: "¿Cómo debo preparar el espacio?", a: "Antes de la visita acordamos qué muebles o equipos mover, los accesos y las zonas que deben protegerse. Cuéntanos si el lugar seguirá en uso para evaluar cómo organizar la faena." },
+  { q: "¿Se genera polvo durante el trabajo?", a: "La aspiración y los métodos de trabajo ayudan a reducir el polvo, pero no todos los materiales ni las faenas requieren el mismo tratamiento. Definimos las medidas de protección y limpieza según las condiciones del espacio." },
+  { q: "¿Cuánto dura el acabado y qué mantenimiento necesita?", a: "La duración depende del tipo de piso, el acabado, el tránsito y su cuidado. Te orientamos sobre limpieza y mantenimiento según el tratamiento; no hay un plazo único que aplique a todas las superficies." },
+  { q: "¿Qué incluye el presupuesto y la garantía?", a: "El presupuesto escrito debe detallar preparación, reparaciones, terminación, precio y plazos. Antes de contratar, revisamos contigo el alcance de la garantía, sus condiciones y los cuidados necesarios para conservar el resultado." },
+  { q: "¿Puedo consultar por parquet, pruebas o trabajos fuera de horario?", a: "Sí. El pulido y vitrificado de madera se evalúa según el estado del piso. Las muestras en terreno y los horarios especiales se coordinan según el tratamiento, la ubicación y la disponibilidad. Indica lo que necesitas al solicitar tu presupuesto." },
+];
+
 export default function FAQSection() {
-  const faqs = [
-    {
-      q: "¿Realizan muestras o pruebas in-situ antes de iniciar una obra grande?",
-      a: "Sí. Para proyectos comerciales e industriales de radier, hormigón y epóxicos, podemos realizar una prueba de diamantado y brillo en una zona delimitada para comprobar la reflectividad real y la dureza del sustrato antes de autorizar el metraje completo.",
-    },
-    {
-      q: "¿Realmente el servicio de desbaste es 99% libre de polvo?",
-      a: "Totalmente. Nuestras máquinas satelitales y orilladoras cuentan con turbinas de aspiración continua y filtros ciclónicos de alta eficiencia que succionan el particulado en el mismo punto de fricción. No es necesario embalar muros.",
-    },
-    {
-      q: "¿Pueden trabajar en horario nocturno o fines de semana?",
-      a: "Sí. Atendemos concesionarios, industrias, bodegas de logística y locales comerciales con turnos continuos especiales, garantizando entrega en los plazos fijados sin paralizar la operación.",
-    },
-    {
-      q: "¿Cuánto tiempo demora el trabajo y cuándo se puede transitar?",
-      a: "En hormigón pulido el tránsito peatonal es inmediato tras la aplicación del densificador de litio. En pisos epóxicos y vitrificados de madera, el tránsito liviano se habilita a las 24 horas y el tráfico pesado a las 48-72 horas.",
-    },
-    {
-      q: "¿Qué durabilidad tiene el pulido diamantado y el cristalizado?",
-      a: "Un hormigón diamantado o granito cristalizado por Titan Pulido mantiene su brillo entre 5 a 10 años con mantenimiento básico de mopa húmeda, sin necesidad de ceras sintéticas que se descascaren.",
-    },
-    {
-      q: "¿Cómo se coordina el presupuesto y las garantías?",
-      a: "Entregamos presupuesto técnico por m² por escrito. Operamos con contrato, facturación formal y garantía técnica según las especificaciones de cada sustrato.",
-    },
-  ];
-
   return (
-    <section id="faq" className="py-24 bg-[#08090b] text-zinc-100 border-t border-zinc-900">
+    <section id="faq" aria-labelledby="faq-title" className="py-16 sm:py-20 bg-[#08090b] text-zinc-100 border-t border-zinc-900">
       <div className="max-w-4xl mx-auto px-6 sm:px-10">
-        <div className="max-w-xl mb-14">
-          <p className="text-xs font-mono tracking-[0.25em] text-amber-400 uppercase mb-3">
-            Criterios & Operación
-          </p>
-          <h2 className="text-2xl sm:text-3xl font-light text-white tracking-tight">
-            Preguntas frecuentes.
-          </h2>
-          <p className="mt-3 text-sm text-zinc-400 font-light leading-relaxed">
-            Aspectos técnicos y condiciones de faena antes de iniciar la restauración con Titan Pulido.
-          </p>
-        </div>
-
-        <div className="divide-y divide-zinc-900 border-y border-zinc-900">
-          {faqs.map((faq, idx) => (
-            <div key={idx} className="py-7 space-y-2">
-              <h3 className="text-base font-medium text-white tracking-tight">
-                {faq.q}
-              </h3>
-              <p className="text-sm font-light text-zinc-400 leading-relaxed max-w-3xl">
-                {faq.a}
-              </p>
-            </div>
+        <h2 id="faq-title" className="text-2xl sm:text-3xl font-light text-white tracking-tight">Antes de cotizar.</h2>
+        <p className="mt-3 mb-8 text-sm text-zinc-300 font-light leading-relaxed">Resuelve tus dudas sobre presupuesto, plazos y preparación del espacio.</p>
+        <div className="divide-y divide-zinc-800 border-y border-zinc-800">
+          {faqs.map((faq, index) => (
+            <details key={faq.q} name="preguntas" open={index === 0} className="group">
+              <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-5 py-5 text-base font-medium text-white [&::-webkit-details-marker]:hidden">
+                <span>{faq.q}</span><Plus className="h-4 w-4 shrink-0 text-amber-400 transition-transform group-open:rotate-45" aria-hidden="true" />
+              </summary>
+              <p className="pb-6 pr-7 text-sm font-light text-zinc-300 leading-relaxed">{faq.a}</p>
+            </details>
           ))}
         </div>
       </div>

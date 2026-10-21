@@ -63,7 +63,7 @@ export default function InteractiveCalculator() {
       `• Total estimado referencial: ${formatearCLP(calculo.totalEstimado)} (Aprox. ${formatearCLP(calculo.precioPorMetro)}/m²)\n\n` +
       `¿Tienen disponibilidad para coordinar una visita técnica de inspección o confirmar presupuesto formal? Muchas gracias.`;
 
-    return `https://wa.me/56912345678?text=${encodeURIComponent(mensaje)}`;
+    return `https://wa.me/56987017328?text=${encodeURIComponent(mensaje)}`;
   };
 
   return (
